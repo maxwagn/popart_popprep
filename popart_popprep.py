@@ -1,12 +1,21 @@
+# !/usr/bin/env python
+# written by Maximilian Wagner
+
+# USAGE: python popart_popprep_v1.py <inputfile.nex> <outputfile.nex> <metadata.csv>
+
+import sys
+
 input = {}
 list = []
 indexer = []
 popcode = []
-
 out = str()
 
+NEXUS_inputfile = sys.argv[1]
+NEXUS_outputfile = sys.argv[2]
+CSV_metadata = sys.argv[3]
 
-with open('INPUTFILENAME') as fh: # change INPUT FILE NAME HERE
+with open(CSV_metadata) as fh: # change INPUT FILE NAME HERE
     for line in fh:
         line = line.rstrip()
         input[line.split(', ')[0]] = line.split(', ')[1]
@@ -44,5 +53,6 @@ for k,v in input.items():
 
 out += ";\nEND;"
 
-outputfile = open("popart_popdata.txt", "w")
-outputfile.write(out)
+with open(NEXUS_inputfile, 'r') as f1, open(NEXUS_outputfile, 'w') as f2:
+    f2.write(f1.read() + "\n\n" + out)
+
