@@ -2,7 +2,7 @@
 
 This python based program produces the output needed for assigning populations to IDs in popart.
 
-Change the name of your prepared ID-POP matrix (see input_template.csv).
+USAGE: python popart_popprep_v1.py <inputfile.nex> <outputfile.nex> <metadata.csv>
 
 
 
