@@ -15,7 +15,7 @@ NEXUS_inputfile = sys.argv[1]
 NEXUS_outputfile = sys.argv[2]
 CSV_metadata = sys.argv[3]
 
-with open(CSV_metadata) as fh: # change INPUT FILE NAME HERE
+with open(CSV_metadata) as fh:
     for line in fh:
         line = line.rstrip()
         input[line.split(', ')[0]] = line.split(', ')[1]
