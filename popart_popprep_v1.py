@@ -18,7 +18,7 @@ CSV_metadata = sys.argv[3]
 with open(CSV_metadata) as fh:
     for line in fh:
         line = line.rstrip()
-        input[line.split(', ')[0]] = line.split(', ')[1]
+        input[line.split(',')[0]] = line.split(',')[1]
     for k, v in input.items():
         if v in list:
             pass
